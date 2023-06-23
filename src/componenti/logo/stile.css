@@ -136,6 +136,7 @@ h2{
 .modal-close{
     position: absolute;
     right: 0;
+    margin-right: 20px;
     padding: 4px;
     width: 35px;
     height: 35px;
@@ -149,6 +150,9 @@ h2{
     text-align: left;
     max-height: 300px; 
     overflow: auto; 
+    color: white;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 /* .recepe-image {
@@ -157,13 +161,7 @@ h2{
     background-repeat: no-repeat;
     min-height :200px;
 } */
-.recipe-content{
-    color: white;
-    font-style: italic;
-    
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-}
 footer {
     position: fixed;
     left: 0;
