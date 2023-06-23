@@ -1,0 +1,179 @@
+body {
+  background: radial-gradient(circle, #86d8ed, #043e65);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+h2{
+    margin-bottom:8px ;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.form-outline {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  width: 200px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #fff;
+  background: linear-gradient(45deg, #5ccffd, #4380f9);
+  transition: background 0.3s ease;
+}
+
+.btn-primary i {
+  margin-right: 5px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #4380f9, #5ccffd);
+}
+.img-book{
+    width: 100px;
+}
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid; 
+    place-items: center; 
+    background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8));
+     z-index: 999; 
+    pointer-events: none; 
+}
+  .loading .img-book {
+    width: 100px;
+    height: 100px;
+    grid-row: 1; 
+    margin-top: 350px;
+    
+  }
+  
+
+  .loading .loading-message {
+    grid-row: 2; 
+    text-align: center; 
+    margin-bottom: 500px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+.modal-box{
+    
+    border: 2px solid rgb(255, 255, 255);
+    position: relative;
+    min-height: 400px;
+    min-width: 400px;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8));
+  padding: 24px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+
+
+  
+.modal-close{
+    position: absolute;
+    right: 0;
+    padding: 4px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.recipe-content{
+    padding: 16px 14px;
+    text-align: left;
+
+}
+/* .recepe-image {
+    background-image: url(./book.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height :200px;
+} */
+.recipe-content{
+    color: white;
+    font-style: italic;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+  
+  @media screen and (max-width: 768px) {
+    footer {
+      position: static;
+    }
+  }
+  
