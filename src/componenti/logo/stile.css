@@ -81,7 +81,7 @@ h2{
     display: grid; 
     place-items: center; 
     background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8));
-     z-index: 999; 
+     z-index: 499; 
     pointer-events: none; 
 }
   .loading .img-book {
@@ -172,6 +172,7 @@ footer {
     padding: 10px 0;
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
+    z-index: 999;
 }
 
   

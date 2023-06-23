@@ -32,6 +32,12 @@ const valueSearch = document.getElementById("form1").value;
 //--->Eventi
 btnClose.addEventListener("click",close);
 btnSearch.addEventListener("click",search);
+window.addEventListener("keypress", function(event) {
+    // Verifica se il tasto premuto è il tasto Invio (codice 13)
+    if (event.keyCode === 13) {
+      search();
+    }
+  });
 
 
 
