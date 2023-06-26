@@ -130,11 +130,14 @@ nav .category-title {
 .btn-primary i {
   margin-right: 5px;
 }
-
+#btn-closer:hover {
+  color: #000000 !important; 
+}
 .btn-primary:hover {
   background: radial-gradient(circle, #86d8ed, #043e65);
-  color: #000000; 
+  color: #000000 ;
 }
+
 
 nav li:hover {
   background: radial-gradient(circle, #86d8ed, #043e65);
@@ -143,6 +146,12 @@ nav li:hover {
 }
 nav li:active {
   color: white;
+}
+.btn-primary:active {
+  color:white;
+}
+#btn-closer:hover:active{
+  color: rgb(255, 255, 255) !important;
 }
 .img-book{
     width: 100px;
@@ -174,7 +183,7 @@ nav li:active {
   }
 .modal-box{
     
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(0, 0, 0, 0.3);
     position: relative;
     min-height: 400px;
     min-width: 400px;
