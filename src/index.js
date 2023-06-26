@@ -1,5 +1,5 @@
 import bookImage from './componenti/logo/book.jpeg';
-import './componenti/logo/stile.css';
+import './stile.css';
 
 // Crea l'elemento immagine
 const image = new Image();
