@@ -1,13 +1,4 @@
-import bookImage from './componenti/logo/book.jpeg';
 import './stile.css';
-
-// Crea l'elemento immagine
-const image = new Image();
-image.src = bookImage;
-image.id = 'dynamic-image';
-image.className = 'centered-image'; // Aggiungi una classe per centrare l'immagine con CSS
-image.style.marginBottom = '20px'; // Aggiungi 20px di spazio sotto l'immagine
-
 // Crea l'elemento footer
 const footer = document.createElement('footer');
 footer.textContent = 'Daniele Camodeca-© Copyright';
@@ -17,7 +8,7 @@ const imageContainer = document.getElementById('image-container');
 const footerContainer = document.getElementById('footer-container');
 
 // Aggiungi l'immagine e il footer ai rispettivi contenitori
-imageContainer.appendChild(image);
+
 footerContainer.appendChild(footer);
 
 

@@ -135,10 +135,14 @@ nav .category-title {
   background: radial-gradient(circle, #86d8ed, #043e65);
   color: #000000; 
 }
+
 nav li:hover {
   background: radial-gradient(circle, #86d8ed, #043e65);
   color: #000000; 
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); 
+}
+nav li:active {
+  color: white;
 }
 .img-book{
     width: 100px;
