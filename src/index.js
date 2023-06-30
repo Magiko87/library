@@ -1,5 +1,7 @@
 import axios from "axios";
 import './stile.css';
+const cors = require('cors');
+
 
 
 const keyword = document.getElementById("keyword");

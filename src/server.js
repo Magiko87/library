@@ -1,26 +1,15 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const mime = require('mime');
+const express = require('express');
+const cors = require('cors');
 
-const server = http.createServer((req, res) => {
-  if (req.url === '/server.js') {
-    const filePath = path.join(__dirname, 'server.js');
-    const contentType = mime.getType(filePath);
-    res.setHeader('Content-Type', contentType);
+const app = express();
 
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.writeHead(404);
-        res.end('File non trovato');
-      } else {
-        res.writeHead(200);
-        res.end(data);
-      }
-    });
-  }
-});
+// Abilita il middleware CORS
+app.use(cors());
 
-server.listen(5000, () => {
-  console.log('Server in ascolto sulla porta 5000');
+// Definisci le tue route e altre configurazioni
+// ...
+
+// Avvia il server
+app.listen(3000, () => {
+  console.log('Server avviato sulla porta 3000');
 });
