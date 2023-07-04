@@ -118,6 +118,26 @@ function makeAPIRequest(searchTerm) {
     });
 }
 
+// ...
+
+// ...
+
+// ...
+
+modal.addEventListener("click", function (event) {
+  const resultElement = event.target.closest(".result");
+  const coverElement = event.target.closest("img");
+
+  if (resultElement) {
+    const bookKey = resultElement.getAttribute("data-key");
+    getBookDescription(bookKey);
+  } else if (coverElement) {
+    const bookKey = coverElement.getAttribute("data-key");
+    getBookDescription(bookKey);
+  }
+});
+
+// ...
 
 function getBookDescription(bookKey) {
   const apiUrl = `https://openlibrary.org${bookKey}.json`;
@@ -130,6 +150,8 @@ function getBookDescription(bookKey) {
         : "Nessuna descrizione disponibile";
       modal.classList.remove("hidden");
 
+      const modalDescription = document.querySelector(".modal .recipe-content .description");
+
       if (modalDescription) {
         modalDescription.textContent = description;
       } else {
@@ -140,3 +162,4 @@ function getBookDescription(bookKey) {
       console.error(error);
     });
 }
+
