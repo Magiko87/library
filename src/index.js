@@ -39,7 +39,7 @@ listItems.forEach((item) => {
     const categoria = item.getAttribute("data-categoria");
 
     // Esegui la chiamata API
-    fetch(`https://openlibrary.org//subjects/${categoria}.json`)
+    fetch(`https://openlibrary.org/subjects/${categoria}.json`)
       .then((response) => response.json())
       .then((data) => {
         // Gestisci i dati della risposta API qui
