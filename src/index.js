@@ -74,6 +74,7 @@ function search() {
     loading.classList.add("hidden");
     makeAPIRequest(searchTerm);
     modalContent.classList.remove("hidden");
+    modalDescription.classList.remove("hidden");
   }, 3000);
 }
 
@@ -125,15 +126,17 @@ function getBookDescription(bookKey) {
         : "Nessuna descrizione disponibile";
       const modal = document.querySelector(".modal");
       modal.classList.remove("hidden");
-      const modalDescription = document.getElementById("description");
+      const modalDescription = document.querySelector(".modal .recipe-content .description");
 
-      if (modalDescription) {
-        modalDescription.textContent = description;
-      } else {
-        console.error("Element with ID 'description' not found.");
-      }
+if (modalDescription) {
+  modalDescription.textContent = description;
+} else {
+  console.error("Element with class 'description' not found.");
+}
+
     })
     .catch((error) => {
       console.error(error);
     });
 }
+
