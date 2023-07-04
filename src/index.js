@@ -78,4 +78,3 @@ function search() {
         // Gestisci eventuali errori
       });
   }
-
