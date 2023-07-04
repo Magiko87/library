@@ -81,6 +81,7 @@ function search() {
 }
 function makeAPIRequest(searchTerm) {
   const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
+  loading.classList.remove("hidden");
 
   fetch(apiUrl)
     .then((response) => response.json())
@@ -108,11 +109,12 @@ function makeAPIRequest(searchTerm) {
 
       const content = document.querySelector(".modal .recipe-content");
       content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
-      
+      loading.classList.add("hidden");
       modal.classList.remove("hidden"); // Mostra la modal con i risultati
     })
     .catch((error) => {
       console.error(error);
+      loading.classList.add("hidden");
     });
 }
 
