@@ -39,7 +39,7 @@ listItems.forEach((item) => {
     const categoria = item.getAttribute("data-categoria");
 
     // Esegui la chiamata API
-    fetch(`URL_Della_Tua_API?categoria=${categoria}`)
+    fetch(`https://openlibrary.org//subjects/${categoria}.json`)
       .then((response) => response.json())
       .then((data) => {
         // Gestisci i dati della risposta API qui
@@ -49,7 +49,7 @@ listItems.forEach((item) => {
         // Gestisci eventuali errori durante la chiamata API
         console.error(error);
       });
-  });
+  })
 });
 function search() {
   loading.classList.remove("hidden");
