@@ -5,7 +5,7 @@ const footer = document.createElement("footer");
 footer.textContent = "Daniele Camodeca-© Copyright";
 
 // Ottieni il riferimento al contenitore dell'immagine e del footer
-const imageContainer = document.getElementById("image-container");
+
 const footerContainer = document.getElementById("footer-container");
 
 // Aggiungi l'immagine e il footer ai rispettivi contenitori
@@ -17,7 +17,9 @@ const modal = document.querySelector(".modal");
 const btnSearch = document.querySelector(".btn-primary");
 const loading = document.querySelector(".loading");
 const modalContent = document.querySelector(".modal .recipe-content");
+
 const listItems = document.querySelectorAll(".list-item");
+const modalDescription = document.querySelector(".modal .recipe-content .description");
 
 // Eventi
 btnClose.addEventListener("click", close);
@@ -77,7 +79,6 @@ function search() {
     modalDescription.classList.remove("hidden");
   }, 3000);
 }
-
 function makeAPIRequest(searchTerm) {
   const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
 
@@ -96,24 +97,25 @@ function makeAPIRequest(searchTerm) {
           const bookKey = result.key;
 
           return `<div class="result" data-key="${bookKey}">
-          <h3>${title}</h3>
-          <p class="author">Autore: ${author}</p>
-          <div class="cover-container">
-            <img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">
-          </div>
-        </div>`;
-        
-
+                  <h3>${title}</h3>
+                  <p class="author">Autore: ${author}</p>
+                  <div class="cover-container">
+                    <img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">
+                  </div>
+                 </div>`;
         })
         .join("");
 
       const content = document.querySelector(".modal .recipe-content");
       content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
+      
+      modal.classList.remove("hidden"); // Mostra la modal con i risultati
     })
     .catch((error) => {
       console.error(error);
     });
 }
+
 
 function getBookDescription(bookKey) {
   const apiUrl = `https://openlibrary.org${bookKey}.json`;
@@ -124,19 +126,15 @@ function getBookDescription(bookKey) {
       const description = data.description
         ? data.description.value
         : "Nessuna descrizione disponibile";
-      const modal = document.querySelector(".modal");
       modal.classList.remove("hidden");
-      const modalDescription = document.querySelector(".modal .recipe-content .description");
 
-if (modalDescription) {
-  modalDescription.textContent = description;
-} else {
-  console.error("Element with class 'description' not found.");
-}
-
+      if (modalDescription) {
+        modalDescription.textContent = description;
+      } else {
+        console.error("Element with class 'description' not found.");
+      }
     })
     .catch((error) => {
       console.error(error);
     });
 }
-
