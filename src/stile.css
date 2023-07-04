@@ -219,6 +219,30 @@ nav li:active {
     align-items: center;
     
 }
+.result {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.result h3 {
+  margin-bottom: 0;
+}
+
+.result .author {
+  margin-top: 0.5em;
+  font-style: italic;
+  color: #ffffff;
+}
+
+
+.cover-container {
+  margin-top: 10px; /* Aggiungi uno spazio tra il titolo e la copertina */
+}
+
+
 .recipe-content{
     padding: 16px 14px;
     text-align: left;
