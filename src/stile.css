@@ -16,6 +16,8 @@ h2{
   justify-content: center;
   align-items: center;
   color: white;
+  margin-top:30px ;
+  margin-bottom: 10px;
 }
 
 .input-group {
@@ -23,13 +25,6 @@ h2{
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-}
-.centered-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
-  width: 200px;
 }
 
 .form-outline {
@@ -42,14 +37,17 @@ h2{
   height: 30px;
   margin-right: 5px;
 }
-ul {
+ul  {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   margin-top: 50px; 
+  padding-left: 0;
+
 }
 
-ul li {
+ul  li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +65,7 @@ ul li {
 }
 
 
-ul .list-item .material-icons {
+ul  .list-item .material-icons {
   font-size: 48px;
 }
 
