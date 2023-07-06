@@ -181,12 +181,25 @@ nav li:active {
     visibility: hidden;
     opacity: 0;
   }
-.modal-box{
-    
+.modal-content{
+    background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.3);
     position: relative;
     min-height: 400px;
     min-width: 400px;
+    
+}
+
+
+ .btn-close {
+  margin: 5px;
+  margin-left: auto;
+}
+
+.modal-description{
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 .modal {
   position: fixed;
@@ -198,7 +211,7 @@ nav li:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8));
+  background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8)) !important;
   padding: 24px;
   overflow: auto;
   overscroll-behavior: contain;
@@ -261,12 +274,7 @@ nav li:active {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
-/* .recepe-image {
-    background-image: url(./book.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height :200px;
-} */
+
 
 footer {
     position: fixed;
