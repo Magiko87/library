@@ -203,9 +203,17 @@ nav li:active {
   overflow: auto;
   overscroll-behavior: contain;
 }
+.book-modal {
+  display: none;
+  /* Aggiungi stili per la modale */
+}
 
 
-
+.description {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.4;
+}
   
 .modal-close{
     position: absolute;
@@ -279,4 +287,3 @@ footer {
       position: static;
     }
   }
-  /* @media screen and (max-width: 600px) { */

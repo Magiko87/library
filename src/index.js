@@ -103,6 +103,7 @@ function makeAPIRequest(searchTerm) {
                   <div class="cover-container">
                     <img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">
                   </div>
+                  <p class="description"></p>
                  </div>`;
         })
         .join("");
@@ -125,15 +126,12 @@ function makeAPIRequest(searchTerm) {
 // ...
 
 modal.addEventListener("click", function (event) {
-  const resultElement = event.target.closest(".result");
-  const coverElement = event.target.closest("img");
+  const coverElement = event.target.closest(".cover-container img");
 
-  if (resultElement) {
-    const bookKey = resultElement.getAttribute("data-key");
-    getBookDescription(bookKey);
-  } else if (coverElement) {
+  if (coverElement) {
     const bookKey = coverElement.getAttribute("data-key");
-    getBookDescription(bookKey);
+    const descriptionElement = coverElement.parentNode.querySelector(".description");
+    getBookDescription(bookKey, descriptionElement);
   }
 });
 
@@ -150,16 +148,13 @@ function getBookDescription(bookKey) {
         : "Nessuna descrizione disponibile";
       modal.classList.remove("hidden");
 
-      const modalDescription = document.querySelector(".modal .recipe-content .description");
+      const modalDescriptions = document.querySelectorAll(".modal .recipe-content .description");
 
-      if (modalDescription) {
+      modalDescriptions.forEach((modalDescription) => {
         modalDescription.textContent = description;
-      } else {
-        console.error("Element with class 'description' not found.");
-      }
+      });
     })
     .catch((error) => {
       console.error(error);
     });
 }
-
