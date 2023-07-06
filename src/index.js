@@ -36,6 +36,9 @@ listItems.forEach((item) => {
 
 function close() {
   modal.classList.add("hidden");
+  const modalDescription = document.querySelector(".modal-description");
+  description = "";
+  modalDescription.textContent = description;
 }
 function search() {
   loading.classList.remove("hidden");
@@ -54,6 +57,7 @@ function makeAPIRequest(searchTerm) {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
+      
       const results = data.docs;
 
       const resultsHTML = results
@@ -62,12 +66,14 @@ function makeAPIRequest(searchTerm) {
           const author = result.author_name ? result.author_name[0] : "Autore sconosciuto";
           const coverUrl = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
           const bookKey = result.key;
+          const coverImage = result.cover_i ? `<img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">` : `<img src="https://picsum.photos/seed/picsum/200/300" data-key="${bookKey}">`;
+
 
           return `<div class="result" data-key="${bookKey}">
                   <h3>${title}</h3>
                   <p class="author">Autore: ${author}</p>
                   <div class="cover-container">
-                    <img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">
+                    ${coverImage}
                   </div>
                  </div>`;
         })
@@ -75,6 +81,11 @@ function makeAPIRequest(searchTerm) {
 
       const content = document.querySelector(".modal .recipe-content");
       content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
+      if (resultsHTML === "") {
+        content.innerHTML = `<div class="empty-message">Nessun risultato trovato.</div>`;
+      } else {
+        content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
+      }
       loading.classList.add("hidden");
       modal.classList.remove("hidden"); // Mostra la modale con i risultati
 
@@ -91,7 +102,7 @@ function makeAPIRequest(searchTerm) {
       loading.classList.add("hidden");
     });
 }
-
+let description = "";
 function getBookDescription(bookKey) {
   const apiUrl = `https://openlibrary.org${bookKey}.json`;
 

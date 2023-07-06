@@ -185,7 +185,7 @@ nav li:active {
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.3);
     position: relative;
-    max-height: 400px;
+    max-height: 500px;
     min-width: 400px;
     padding: 16px;
     overflow: auto;
@@ -193,6 +193,8 @@ nav li:active {
 }
 .cover-container img {
   transition: opacity 0.3s ease;
+  max-width: 200px;
+  max-height: 300px;
 }
 
 .cover-container img:hover {
@@ -212,8 +214,10 @@ nav li:active {
 
 .modal-description{
   color: white;
+  background-color: #15374e;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+  overflow: auto;
+  max-height: 200px;
 }
 .modal {
   max-height: 80vh;
