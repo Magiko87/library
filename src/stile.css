@@ -42,14 +42,14 @@ h2{
   height: 30px;
   margin-right: 5px;
 }
-nav {
+ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px; 
 }
 
-nav li {
+ul li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,12 +67,12 @@ nav li {
 }
 
 
-nav .list-item .material-icons {
+ul .list-item .material-icons {
   font-size: 48px;
 }
 
 
-nav .category-title {
+ul .category-title {
   margin-top: 5px; 
 }
 .loading .loading-message {
@@ -139,12 +139,12 @@ nav .category-title {
 }
 
 
-nav li:hover {
+ul li:hover {
   background: radial-gradient(circle, #86d8ed, #043e65);
   color: #000000; 
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); 
 }
-nav li:active {
+ul li:active {
   color: white;
 }
 .btn-primary:active {
