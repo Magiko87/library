@@ -83,7 +83,16 @@ function getBookDescription(bookKey) {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      const description = data.description ? data.description.value : "Nessuna descrizione disponibile";
+      let description = "Nessuna descrizione disponibile";
+
+      if (data.description) {
+        if (typeof data.description === "object") {
+          description = data.description.value || description;
+        } else if (typeof data.description === "string") {
+          description = data.description || description;
+        }
+      }
+
       modal.classList.remove("hidden");
 
       const modalDescription = document.querySelector(".modal-description");

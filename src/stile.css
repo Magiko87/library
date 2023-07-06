@@ -187,22 +187,37 @@ nav li:active {
     position: relative;
     min-height: 400px;
     min-width: 400px;
+    padding: 16px;
     
+}
+.cover-container img {
+  transition: opacity 0.3s ease;
+}
+
+.cover-container img:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 
  .btn-close {
+  z-index: 999;
   margin: 5px;
   margin-left: auto;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .modal-description{
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
+
 }
 .modal {
+  max-height: 80vh;
   position: fixed;
+  overflow-y: auto;
   top: 0;
   left: 0;
   right: 0;
