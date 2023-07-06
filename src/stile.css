@@ -214,7 +214,7 @@ nav li:active {
 
 .modal-description{
   color: white;
-  background-color: #15374e;
+  background-color: rgba(2, 47, 77, 0.9);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   overflow: auto;
   max-height: 200px;
@@ -231,7 +231,7 @@ nav li:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, rgba(134, 216, 237, 0.85), rgba(4, 62, 101, 0.8)) !important;
+  background-color: rgba(2, 47, 77, 0.9);
   padding: 24px;
   overflow: auto;
   overscroll-behavior: contain;
