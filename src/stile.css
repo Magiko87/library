@@ -206,6 +206,7 @@ ul li:active {
  .btn-close {
   z-index: 999;
   margin: 5px;
+  margin-right: 15px;
   margin-left: auto;
   position: absolute;
   top: 10px;
