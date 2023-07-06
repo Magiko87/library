@@ -14,12 +14,18 @@ footerContainer.appendChild(footer);
 const btnClose = document.querySelector(".btn-close");
 const modal = document.querySelector(".modal");
 const loading = document.querySelector(".loading");
-
+const btnSearch = document.querySelector(".btn-primary");
 const listItems = document.querySelectorAll(".list-item");
-
+const content = document.querySelector('.modal .recipe-content');
 // Eventi
 btnClose.addEventListener("click", close);
-
+btnSearch.addEventListener("click", search);
+window.addEventListener("keypress", function(event) {
+  // Verifica se il tasto premuto è il tasto Invio (codice 13)
+  if (event.keyCode === 13) {
+    search();
+  }
+});
 listItems.forEach((item) => {
   item.addEventListener("click", () => {
     loading.classList.remove("hidden");
@@ -31,7 +37,16 @@ listItems.forEach((item) => {
 function close() {
   modal.classList.add("hidden");
 }
+function search() {
+  loading.classList.remove("hidden");
+  const searchTerm = document.getElementById("form1").value;
 
+  setTimeout(function() {
+    loading.classList.add("hidden");
+    makeAPIRequest(searchTerm);
+    content.classList.remove("hidden");
+  }, 3000);
+}
 function makeAPIRequest(searchTerm) {
   const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
   loading.classList.remove("hidden");
