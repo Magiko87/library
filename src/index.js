@@ -1,31 +1,27 @@
 import "./stile.css";
 
-// Crea l'elemento footer
+//---> Crea l'elemento footer
 const footer = document.createElement("footer");
 footer.textContent = "Daniele Camodeca-© Copyright";
-
-// Ottieni il riferimento al contenitore dell'immagine e del footer
 const footerContainer = document.getElementById("footer-container");
-
-// Aggiungi l'immagine e il footer ai rispettivi contenitori
 footerContainer.appendChild(footer);
 
-// Seleziono elementi
+//---> Seleziono elementi
 const btnClose = document.querySelector(".btn-close");
 const modal = document.querySelector(".modal");
 const loading = document.querySelector(".loading");
 const btnSearch = document.querySelector(".btn-primary");
 const listItems = document.querySelectorAll(".list-item");
 const content = document.querySelector('.modal .recipe-content');
-// Eventi
+//---> Eventi
 btnClose.addEventListener("click", close);
 btnSearch.addEventListener("click", search);
-window.addEventListener("keypress", function(event) {
-  // Verifica se il tasto premuto è il tasto Invio (codice 13)
-  if (event.keyCode === 13) {
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
     search();
   }
 });
+//--->Funzioe makeAPIrequest al click delle liste
 listItems.forEach((item) => {
   item.addEventListener("click", () => {
     loading.classList.remove("hidden");
@@ -33,13 +29,14 @@ listItems.forEach((item) => {
     makeAPIRequest(categoria);
   });
 });
-
+//--->Chiusura modale
 function close() {
   modal.classList.add("hidden");
   const modalDescription = document.querySelector(".modal-description");
   description = "";
   modalDescription.textContent = description;
 }
+//--->Funzione controllo modale loading e esecuzione ricerca API con il termine immesso nella barra di ricerca
 function search() {
   loading.classList.remove("hidden");
   const searchTerm = document.getElementById("form1").value;
@@ -50,6 +47,7 @@ function search() {
     content.classList.remove("hidden");
   }, 3000);
 }
+//--->Funzione che gestisce la chiesta API usando un termine specificato,genera html,e gestisce gli errori
 function makeAPIRequest(searchTerm) {
   const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
   loading.classList.remove("hidden");
@@ -87,7 +85,7 @@ function makeAPIRequest(searchTerm) {
         content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
       }
       loading.classList.add("hidden");
-      modal.classList.remove("hidden"); // Mostra la modale con i risultati
+      modal.classList.remove("hidden"); 
 
       const coverImages = document.querySelectorAll(".modal .recipe-content .cover-container img");
       coverImages.forEach((coverImage) => {
@@ -102,6 +100,7 @@ function makeAPIRequest(searchTerm) {
       loading.classList.add("hidden");
     });
 }
+//--->Funzione per la gestione delle descrizioni dei libri dall'API utilizzando la key del libro
 let description = "";
 function getBookDescription(bookKey) {
   const apiUrl = `https://openlibrary.org${bookKey}.json`;
