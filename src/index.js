@@ -18,6 +18,7 @@ btnClose.addEventListener("click", close);
 btnSearch.addEventListener("click", search);
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
+    event.preventDefault();
     search();
   }
 });
