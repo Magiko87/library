@@ -14,8 +14,8 @@ const btnSearch = document.querySelector(".btn-primary");
 const listItems = document.querySelectorAll(".list-item");
 const content = document.querySelector('.modal .recipe-content');
 //---> Eventi
-btnClose.addEventListener("click", close);
-btnSearch.addEventListener("click", search);
+btnClose.addEventListener("click", () => toggleModal(false));
+btnSearch.addEventListener("click", search); // Esegui la ricerca quando viene cliccato il pulsante di ricerca
 document.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -30,13 +30,24 @@ listItems.forEach((item) => {
     makeAPIRequest(categoria);
   });
 });
-//--->Chiusura modale
-function close() {
-  modal.classList.add("hidden");
+function toggleModal(force = null) {
+  const modal = document.querySelector(".modal");
   const modalDescription = document.querySelector(".modal-description");
-  description = "";
-  modalDescription.textContent = description;
+
+  if (typeof force === 'boolean') {
+    // Vogliamo forzare l'aggiunta o la rimozione del modal
+    modal.classList.toggle("hidden", !force); // Aggiunge o rimuove la classe 'hidden' in base al valore booleano di 'force'
+  } else {
+    // Se il parametro 'force' non è fornito, il comportamento predefinito è invertire lo stato del modal
+    modal.classList.toggle("hidden"); 
+  }
+
+  // Se il modal è visibile, svuota il contenuto della descrizione
+  if (!modal.classList.contains("hidden")) {
+    modalDescription.textContent = "";
+  }
 }
+
 //--->Funzione controllo modale loading e esecuzione ricerca API con il termine immesso nella barra di ricerca
 function search() {
   loading.classList.remove("hidden");
