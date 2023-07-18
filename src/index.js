@@ -23,13 +23,20 @@ document.addEventListener("keydown", function(event) {
   }
 });
 //--->Funzioe makeAPIrequest al click delle liste
-listItems.forEach((item) => {
-  item.addEventListener("click", () => {
+// Seleziona il nodo padre che contiene tutti gli elementi .list-item
+const listContainer = document.getElementById("list-container");
+
+// Aggiungi un unico event listener al nodo padre per il click sugli elementi .list-item
+listContainer.addEventListener("click", (event) => {
+  // Verifica se l'elemento cliccato ha la classe .list-item
+  if (event.target.classList.contains("list-item")) {
     loading.classList.remove("hidden");
-    const categoria = item.getAttribute("data-categoria");
+    const categoria = event.target.getAttribute("data-categoria");
     makeAPIRequest(categoria);
-  });
+  }
 });
+
+
 function toggleModal(force = null) {
   const modal = document.querySelector(".modal");
   const modalDescription = document.querySelector(".modal-description");
