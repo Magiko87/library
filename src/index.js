@@ -54,23 +54,24 @@ function toggleModal(force = null) {
     modalDescription.textContent = "";
   }
 }
+const form = document.getElementById("search-form");
 
-//--->Funzione controllo modale loading e esecuzione ricerca API con il termine immesso nella barra di ricerca
-function search() {
-  loading.classList.remove("hidden");
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
   const searchTerm = document.getElementById("form1").value;
+  search(searchTerm);
+});
+//--->Funzione controllo modale loading e esecuzione ricerca API con il termine immesso nella barra di ricerca
+function search(searchTerm) {
+  loading.classList.remove("hidden");
+  makeAPIRequest(searchTerm);
 
-  setTimeout(function() {
-    loading.classList.add("hidden");
-    makeAPIRequest(searchTerm);
-    content.classList.remove("hidden");
-  }, 3000);
 }
 //--->Funzione che gestisce la chiesta API usando un termine specificato,genera html,e gestisce gli errori
 function makeAPIRequest(searchTerm) {
   const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
-  loading.classList.remove("hidden");
-
+  
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -97,7 +98,7 @@ function makeAPIRequest(searchTerm) {
         .join("");
 
       const content = document.querySelector(".modal .recipe-content");
-      content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
+      
       if (resultsHTML === "") {
         content.innerHTML = `<div class="empty-message">Nessun risultato trovato.</div>`;
       } else {
