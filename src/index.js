@@ -49,10 +49,10 @@ function toggleModal(force = null) {
     modal.classList.toggle("hidden"); 
   }
 
-  // Se il modal è visibile, svuota il contenuto della descrizione
-  if (!modal.classList.contains("hidden")) {
-    modalDescription.textContent = "";
-  }
+    // Se il modal è nascosto, svuota il contenuto della descrizione
+    if (modal.classList.contains("hidden")) {
+      modalDescription.textContent = "";
+    }
 }
 const form = document.getElementById("search-form");
 
@@ -81,7 +81,7 @@ function makeAPIRequest(searchTerm) {
       const resultsHTML = results
         .map((result) => {
           const title = result.title;
-          const author = result.author_name ? result.author_name[0] : "Autore sconosciuto";
+          const author = result.author_name ? result.author_name[0] : "Unknown Author";
           const coverUrl = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
           const bookKey = result.key;
           const coverImage = result.cover_i ? `<img src="${coverUrl}" alt="Copertina del libro" data-key="${bookKey}">` : `<img src="https://picsum.photos/seed/picsum/200/300" data-key="${bookKey}">`;
@@ -100,7 +100,7 @@ function makeAPIRequest(searchTerm) {
       const content = document.querySelector(".modal .recipe-content");
       
       if (resultsHTML === "") {
-        content.innerHTML = `<div class="empty-message">Nessun risultato trovato.</div>`;
+        content.innerHTML = `<div class="empty-message">No results found.</div>`;
       } else {
         content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
       }
@@ -120,6 +120,9 @@ function makeAPIRequest(searchTerm) {
       loading.classList.add("hidden");
     });
 }
+const modalDescription = document.querySelector(".modal-description");
+  modalDescription.textContent = "";
+
 //--->Funzione per la gestione delle descrizioni dei libri dall'API utilizzando la key del libro
 let description = "";
 function getBookDescription(bookKey) {
@@ -128,7 +131,7 @@ function getBookDescription(bookKey) {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      let description = "Nessuna descrizione disponibile";
+      let description = "No description available";
 
       if (data.description) {
         if (typeof data.description === "object") {
