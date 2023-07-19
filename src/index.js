@@ -26,12 +26,12 @@ document.addEventListener("keydown", function(event) {
 // Seleziona il nodo padre che contiene tutti gli elementi .list-item
 const listContainer = document.getElementById("list-container");
 
-// Aggiungi un unico event listener al nodo padre per il click sugli elementi .list-item
+// Aggiungi un event listener al nodo padre per il click sugli elementi .list-item e sull'icona
 listContainer.addEventListener("click", (event) => {
-  // Verifica se l'elemento cliccato ha la classe .list-item
-  if (event.target.classList.contains("list-item")) {
+  let listItem = event.target.closest(".list-item");
+  if (listItem) {
     loading.classList.remove("hidden");
-    const categoria = event.target.getAttribute("data-categoria");
+    const categoria = listItem.getAttribute("data-categoria");
     makeAPIRequest(categoria);
   }
 });
