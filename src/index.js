@@ -7,7 +7,7 @@ const footerContainer = document.getElementById("footer-container");
 footerContainer.appendChild(footer);
 
 //---> Seleziono elementi
-const btnClose = document.querySelector(".btn-close");
+const btnClose = document.querySelector(".btn-closee");
 const modal = document.querySelector(".modal");
 const loading = document.querySelector(".loading");
 const btnSearch = document.querySelector(".btn-primary");
