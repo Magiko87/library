@@ -94,11 +94,8 @@ function makeAPIRequest(searchTerm) {
 
       const content = document.querySelector(".modal .recipe-content");
       
-      if (resultsHTML === "") {
-        content.innerHTML = `<div class="empty-message">No results found.</div>`;
-      } else {
-        content.innerHTML = `<div class="results-container">${resultsHTML}</div>`;
-      }
+      content.innerHTML = resultsHTML === "" ? `<div class="empty-message">No results found.</div>` : `<div class="results-container">${resultsHTML}</div>`;
+
       loading.classList.add("hidden");
       modal.classList.remove("hidden"); 
 
@@ -126,15 +123,10 @@ function getBookDescription(bookKey) {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      let description = "No description available";
+     
 
-      if (data.description) {
-        if (typeof data.description === "object") {
-          description = data.description.value || description;
-        } else if (typeof data.description === "string") {
-          description = data.description || description;
-        }
-      }
+      let description = data.description ? (typeof data.description === "object" ? data.description.value || "No description available" : data.description) : "No description available";
+
 
       modal.classList.remove("hidden");
 
