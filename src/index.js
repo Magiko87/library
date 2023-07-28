@@ -16,13 +16,8 @@ const content = document.querySelector('.modal .recipe-content');
 //---> Eventi
 btnClose.addEventListener("click", () => toggleModal(false));
 btnSearch.addEventListener("click", search); // Esegui la ricerca quando viene cliccato il pulsante di ricerca
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    search();
-  }
-});
-//--->Funzioe makeAPIrequest al click delle liste
+
+
 // Seleziona il nodo padre che contiene tutti gli elementi .list-item
 const listContainer = document.getElementById("list-container");
 
